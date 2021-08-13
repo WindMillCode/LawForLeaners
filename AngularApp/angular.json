@@ -54,7 +54,6 @@
                         ],
                         "styles": [
                             "src/styles.scss"
-                            // "src/assets/styles/pikaday.css"
                         ],
                         "scripts": [
                             "src/assets/scripts/pikaday.js",
