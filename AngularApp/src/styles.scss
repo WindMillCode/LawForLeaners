@@ -1,0 +1,476 @@
+@use "sass:map";
+
+@mixin blue_button {
+	background:radial-gradient(farthest-corner at 100% 0px, cyan 0%, blue 200%);
+}
+
+@mixin dark_blue_button {
+	background:radial-gradient(farthest-corner at 100% 0px, royalblue 0%, navy 200%);
+}
+
+@mixin black_button {
+	background:radial-gradient(farthest-corner at 100% 0px, grey 0%, black 150%);
+}
+
+@mixin orange_button {
+	background:radial-gradient(farthest-corner at 100% 0px, orange 0%, red 200%);
+}
+
+@mixin red_button {
+	background:radial-gradient(farthest-corner at 100% 0px, red 0%, white 250%);
+}
+
+@mixin green_button {
+	background:radial-gradient(farthest-corner at 100% 0px, aquamarine 0%, green 200%);
+}
+
+@mixin flex-column-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+@mixin outline{
+
+    border:3px dotted red;
+}
+
+@mixin glassmorphism{
+    border-radius: 30px;
+    backdrop-filter: blur( 4px );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+// @import "../node_modules/primeng/resources/themes/saga-blue/theme.css";
+// @import "../node_modules/primeng/resources/primeng.min.css";
+// @import "../node_modules/primeicons/primeicons.css";
+@import "assets/styles/fonts";
+
+* {
+    // margin :10px 0 0 0;
+    margin:0;
+    padding: 0;
+    z-index:4;
+    font-family: Arial, Helvetica, sans-serif;
+
+    scrollbar-color: transparent;
+    scrollbar-width: 6px;
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background: #263040;
+    }
+    &::-webkit-scrollbar-thumb:window-inactive {
+        background-color: transparent;
+        opacity:4px;
+    }
+    &::-webkit-scrollbar-corner {
+        background: transparent;
+    }
+}
+
+@function my_prod($step){
+    $type: prod;
+    $prod: (0:50% ,1:slidein 2s,2:1s);
+    $dev: (0:20px ,1:none,2:none);
+    $answer: "";
+    @if $type == prod {
+        $answer: map.get($prod,$step);
+
+    }
+    @else if $type == dev {
+        $answer: map.get($dev,$step);
+
+    }
+    @return $answer;
+}
+
+:root{
+    --font-family0:Oswald;
+    --margin0:20px 0 0 0;
+}
+// my minxins
+@mixin view{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height:100vh;
+    width:100vw;
+    @include flex-column-center;
+    overflow-x:hidden;
+
+}
+
+@mixin asfs {
+    align-self: flex-start
+}
+
+@mixin jsfs {
+    justify-self: flex-start
+}
+
+@mixin tac{
+    text-align: center;
+}
+
+.a_p_p_{
+    &Specific{
+        &0{
+
+            // ...
+        }
+
+        &View{
+            @include view;
+        }
+
+        &PodMargin{
+            margin:0 50px;
+        }
+
+        &White{
+            color :white;
+        }
+        &BGBlack{
+            background-color:black;
+        }
+        &ASFS{
+            @include asfs;
+        }
+        &JSFS{
+            @include jsfs;
+        }
+
+        &TAC{
+            @include tac;
+        }
+
+        &ArchView{
+            @include outline;
+            width:100%;
+            display:flex;
+            flex-direction: column;
+            align-items:center;
+            overflow-x:hidden;
+        }
+    }
+
+    &BackgroundProp{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 0px;
+        width: 0px;
+        z-index: 0;
+    }
+
+    &Overlay{
+        &Img{
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width:  100vw;
+            object-fit: cover;
+            // // background-image: url("assets/media/overlay_1.jpg");
+            // background-repeat: no-repeat;
+            // background-size: cover;
+        }
+    }
+
+    &Nav{
+        &View {
+            // @include outline;
+            // height:40vh;
+            z-index:5;
+            max-width: 2500px;
+
+        }
+
+        &Header{
+            &Pod{
+                // @include outline;
+                width: 100%;
+                display: flex;
+                margin-top:20px;
+                flex-wrap:wrap;
+            }
+
+            &Img{
+                height:100px;
+                width:200px;
+            }
+
+            &Title{
+                padding:10px;
+                @include black_button;
+            }
+
+            &SubTitle{
+                flex:1 0 80%;
+                margin: 60px 300px;
+            }
+
+            &GetInTouch{
+                @include orange_button;
+                padding:15px;
+                font-size:24px;
+                margin : 0 50px 0 auto;
+                // flex: 1
+            }
+        }
+
+        &Main{
+            &Pod{
+                display: flex;
+                margin : 0 50px;
+                align-items: flex-start;
+                justify-items: flex-start;
+            }
+
+            &Head{
+                &Pod{
+                    // margin: 20px 20px;
+                    padding: 20px;
+                }
+
+                &Link{
+                    &Text{
+                        text-decoration: none;
+                    }
+                }
+            }
+
+            &Sub{
+                &Pod{
+                    // @include outline;
+                    display: none;
+                    flex-direction: column;
+
+                }
+
+                &Link{
+                    &Text{
+                        text-decoration: none;
+                        padding:20px 0 0 0;
+                    }
+                }
+            }
+        }
+    }
+
+    &Home{
+
+        &View{
+            @include flex-column-center;
+            overflow-x:hidden;
+            // max-width: 2500px;
+        }
+
+        &Main{
+            &Pod{
+
+                & *{
+                    color: white;
+                    text-align: center;
+                    font-family:var(--font-family0);
+                }
+                width: 100%;
+                background-color: rgba(255,255,255,0.5);
+                display:flex;
+                padding:20px;
+                flex-wrap:wrap;
+                justify-content: center;
+            }
+        }
+
+        &Content{
+
+            &Pod1{
+                flex :0 1 20%;
+                padding:20px 150px;
+                max-width: 50%;
+
+                &Text{
+                    font-size:72px
+                }
+            }
+            &Pod2{
+                flex :0 1 30%;
+                max-width: 50%;
+                display:flex;
+                padding:20px 150px;
+                &Text{
+                    font-size:54px
+                }
+            }
+
+            &Pod3{
+                flex: 1 0  100%;
+                // @include outline;
+                position:relative;
+                // height:500px;
+
+                &Text{
+                    width: 100%;
+                    font-size:36px;
+                    position: absolute;
+                    top: 40%;
+                    color:black;
+                    margin:auto;
+                    z-index:5
+                }
+                &Image{
+                    height:500px;
+                    width:100%;
+                }
+            }
+
+            &Pod4{
+
+                display:flex;
+                flex-wrap:wrap;
+                justify-content: center;
+                width:100%;
+                background-color: rgba(255,255,255,0.5);
+
+                &Option{
+                    &Pod{
+                        & *{
+                            text-align: left;
+                            margin:20px 0px;
+                            flex:1 0 100%;
+                        }
+
+                        flex-basis:32%;
+                        padding:20px;
+                        background-color:black;
+                        margin:10px;
+                        display:flex;
+                        flex-wrap:wrap;
+
+                    }
+
+                    &Title{
+                        font-size:26px;
+                    }
+
+                    &Button{
+                        flex: 0 0 auto ;
+                        padding:10px 20px;
+                        border-radius:50px;
+                        color:black;
+                        font-size:32px;
+                        font-weight: 100;
+                    }
+                }
+            }
+
+            &Pod5{
+
+                & *{
+                    flex:1 0 100%;
+                    margin:20px 0 0 0;
+                }
+                // @include outline;
+                display:flex;
+                flex-wrap:wrap;
+                justify-content: center;
+                width:100%;
+                background-color: black;
+                padding:100px;
+
+
+            }
+        }
+    }
+
+    &Videos{
+
+        &View{
+            @include flex-column-center;
+            overflow-x:hidden;
+        }
+
+
+        &Main{
+            &Pod{
+                & *{
+                    color: white;
+                    text-align: center;
+                    font-family:var(--font-family0);
+                }
+                width: 100%;
+                // @include outline;
+
+                background-color: rgba(0,0,0,0.8);
+
+            }
+        }
+
+        &Content{
+
+            &Pod1{
+                margin:20px 0 0 0;
+                padding:50px 0 ;
+
+                &Title{
+                    font-size:72px;
+                }
+            }
+
+            &Pod2{
+
+                // @include outline;
+                &Pod{
+
+                    & *{
+                        margin:20px 0 0 0;
+                    }
+
+                    margin:20px 50px;
+                    padding: 20px;
+                    display:flex;
+                    border:10px solid white;
+                    border-radius:50px;
+                    flex-direction:column;
+                    align-items: center;
+
+                    &Video,&Iframe{
+                        width:80%;
+                        height:500px;
+                    }
+
+                    &Desc{
+                        width:70%;
+                        font-size:24px;
+                        border:3px solid white;
+                        border-radius:400px;
+                        padding:40px;
+                    }
+
+                }
+            }
+        }
+    }
+    &ScratchPad{
+
+        &Pod{
+            margin:30%;
+            width:500px;
+        }
+        &Text{
+            font-family: Pilo;
+            font-size: 100px;
+            color:blue;
+            margin:auto;
+            width:25%;
+            position: relative;
+        }
+    }
+}

@@ -1,0 +1,48 @@
+<!-- <app-nav></app-nav> -->
+<div
+class = "a_p_p_HomeMainPod"
+>
+    <div class = "a_p_p_HomeContentPod1">
+        <h1
+        class=" a_p_p_SpecificTAC a_p_p_HomeContentPod1Text"
+        > {{ryber.home.title?.text}}</h1>
+    </div>
+    <div class = "a_p_p_HomeContentPod2">
+        <h1
+        class=" a_p_p_SpecificTAC a_p_p_HomeContentPod2Text"
+        > {{ryber.home.subtitle?.text}}</h1>
+    </div>
+    <div
+    class="a_p_p_HomeContentPod3">
+        <img
+        class="a_p_p_HomeContentPod3Image"
+        src="assets/media/shared_1.jpg" alt="">
+        <h2
+        class="a_p_p_HomeContentPod3Text"
+        >{{ryber.home.offer?.text}}</h2>
+    </div>
+    <div
+    class="a_p_p_HomeContentPod4"
+    >
+        <div
+        class = "a_p_p_HomeContentPod4OptionPod"
+        *ngFor="let item of ryber.home.offerlist?.items"
+        >
+            <h3
+            class="a_p_p_HomeContentPod4OptionTitle"
+            >{{item.title.text}}</h3>
+            <p>{{item.desc.text}}</p>
+            <button
+            class = "a_p_p_HomeContentPod4OptionButton"
+            >{{item.button.text}}</button>
+        </div>
+    </div>
+    <footer
+    class="a_p_p_HomeContentPod5"
+    >
+        <h3>{{ryber.home.footer?.text}}</h3>
+        <h4
+        *ngFor="let item of ryber.home.footernotes?.items"
+        >{{item.text}}</h4>
+    </footer>
+</div>

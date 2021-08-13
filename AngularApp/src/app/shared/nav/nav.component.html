@@ -1,0 +1,47 @@
+<div
+class="a_p_p_NavHeaderPod"
+>
+    <!-- row 1 -->
+    <img
+    class="a_p_p_NavHeaderImg a_p_p_SpecificPodMargin"
+    routerLink="/home"
+    src="assets/media/logo_1.PNG" alt="">
+    <h1
+    class= "a_p_p_SpecificWhite  a_p_p_NavHeaderTitle a_p_p_SpecificASFS"
+    >{{nav.title?.text}}</h1>
+    <button
+    class="a_p_p_NavHeaderGetInTouch a_p_p_SpecificASFS "
+    >
+        Get In Touch
+    </button>
+    <h2
+    class ="a_p_p_NavHeaderSubTitle"
+    >{{nav.subtitle?.text}}</h2>
+    <div
+    class="a_p_p_NavMainPod"
+    appSubNav
+    >
+        <div
+        class="a_p_p_NavMainHeadPod a_p_p_SpecificBGBlack"
+        *ngFor="let x of nav.links?.items"
+        (mouseenter)="x.link?.mouseenter($event)"
+        (mouseleave)="x.link?.mouseleave($event)"
+        >
+            <a
+            [routerLink]='"/"+ x.link?.text | lowercase'
+            class="a_p_p_NavMainHeadLinkText a_p_p_SpecificWhite"
+            >{{x.link?.text}}</a>
+            <div
+            class="a_p_p_NavMainSubPod"
+            [ngStyle]="x.subPod?.style"
+            >
+                <a
+                class="a_p_p_NavMainSubLinkText a_p_p_SpecificWhite"
+                *ngFor="let y of x.subLink"
+                [routerLink]='"/"+ y.text'
+                >{{y.text}}</a>
+            </div>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>

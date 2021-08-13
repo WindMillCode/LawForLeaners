@@ -1,0 +1,36 @@
+<!-- <app-nav></app-nav> -->
+<div
+class="a_p_p_VideosMainPod"
+>
+    <div
+    class="a_p_p_VideosContentPod1"
+    >
+        <h1
+        class="a_p_p_VideosContentPod1Title"
+        >{{ryber.videos.title.text}}</h1>
+    </div>
+    <div
+    class="a_p_p_VideosContentPod2"
+    >
+        <div
+        class="a_p_p_VideosContentPod2Pod"
+        *ngFor="let item of ryber.videos.content.items"
+        >
+            <h1>{{item.title.text}}</h1>
+            <iframe
+            *ngIf="item.url.text | isYoutube"
+            class="a_p_p_VideosContentPod2PodIframe"
+            frameborder="0" allowfullscreen
+            [src]="item.url.text | sanitizeUrl" >
+
+            </iframe>
+            <video
+            *ngIf="!(item.url.text | isYoutube)"
+            #elseblock0
+            [src]="item.url.text"></video>
+            <p
+            class="a_p_p_VideosContentPod2PodDesc"
+            >{{item.desc.text}}</p>
+        </div>
+    </div>
+</div>
