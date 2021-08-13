@@ -23,7 +23,7 @@ jobs:
           echo $PATH;
           cd ~/project/AngularApp/testing/e2e ; 
           cat Gemfile;
-          bundle install &
+          bundle install;
           cd ~/project/AngularApp ;
           npm install -s;   
       - save_cache:
