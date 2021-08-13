@@ -65,6 +65,7 @@ Capybara.register_driver :chrome_billy do |app|
 
   options = Selenium::WebDriver::Chrome::Options.new
   # options.add_argument %{--auto-open-devtools-for-tabs} # figre out to open on seperate screen
+  options.add_argument %{--headless}
   options.add_argument %{disable-infobars}
   options.add_argument %{--disable-notifications}
   options.add_argument %{--start-maximized}
@@ -94,6 +95,7 @@ Capybara.register_driver :firefox_billy do |app|
 
 
   options  =  Selenium::WebDriver::Firefox::Options.new(:profile => profile)
+  options.args << %{--headless}
   capabilities = Selenium::WebDriver::Remote::Capabilities.firefox(:accept_insecure_certs => true)
   Capybara::Selenium::Driver.new(
     app,
