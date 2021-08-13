@@ -112,6 +112,19 @@ refer to README.md in ignore
 
 # Issues 
 * video autoplay inconsistent behaviour get help to solve the problem, 
+* some odd reason CircleCI cant cache the ruby deps
+```
+      - restore_cache:
+          keys:
+            # Find a cache corresponding to this specific package-lock.json
+            - bundle-deps-v1-{{ checksum "/root/project/AngularApp/testing/e2e/Gemfile.lock" }}
+
+      - save_cache:
+          key: bundle-deps-v1-{{ checksum "/root/project/AngularApp/testing/e2e/Gemfile.lock" }}
+          paths:
+            - /root/project/AngularApp/testing/e2e/vendor/bundle    
+```            
+
 
 # TODO
 
