@@ -16,10 +16,7 @@ jobs:
             # Find a cache corresponding to this specific package-lock.json
             - npm-deps-v1-{{ checksum "/root/project/AngularApp/package.json" }}
      
-      - restore_cache:
-          keys:
-            # Find a cache corresponding to this specific package-lock.json
-            - bundle-deps-v1-{{ checksum "/root/project/AngularApp/testing/e2e/Gemfile.lock" }}
+
 
       - run:  
           . /etc/profile.d/01-custom-docker-setup.sh;    
@@ -32,10 +29,7 @@ jobs:
           key: npm-deps-v1-{{ checksum "/root/project/AngularApp/package.json" }}
           paths:
             - /root/project/AngularApp/node_modules  
-      - save_cache:
-          key: bundle-deps-v1-{{ checksum "/root/project/AngularApp/testing/e2e/Gemfile.lock" }}
-          paths:
-            - /root/project/AngularApp/testing/e2e/vendor/bundle    
+
       - run:
           . /etc/profile.d/01-custom-docker-setup.sh;   
           cd ~/project/AngularApp;
