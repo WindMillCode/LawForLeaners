@@ -113,7 +113,7 @@ refer to README.md in ignore
 # Issues 
 * video autoplay inconsistent behaviour get help to solve the problem, 
 * some odd reason CircleCI cant cache the ruby deps
-```
+```yml
       - restore_cache:
           keys:
             # Find a cache corresponding to this specific package-lock.json

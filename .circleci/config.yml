@@ -34,7 +34,7 @@ jobs:
           . /etc/profile.d/01-custom-docker-setup.sh;   
           cd ~/project/AngularApp;
           npx ng serve -c=firebaseprod  --port=4202 &
-          sleep 60s;
+          sleep 40s;
           cd ~/project/AngularApp/testing/e2e;
           bundle exec rspec target-e2e-circleci.rb ;                       
       - run:
