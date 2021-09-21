@@ -6,18 +6,31 @@ import { environment as env } from 'src/environments/environment';
 import { tap,take, exhaustMap, delay } from 'rxjs/operators';
 import { HttpErrorResponse } from '@angular/common/http';
 
-interface MobileNavLinks{
+type MobileNavLinks ={
+    icon:{
+        click:(Event)=>void
+    }
+    view:{
+        style:Object
+    },
+    subPod:{
+        style:{},
+        items:{
+            text:string,
+            click:Function
+        }[]
+        translateIndex:number
+    },
     items:{
         link:{
             text:string;
-            mouseenter?:Function;
-            mouseleave?:Function;
+            click:Function
         },
-        subLink:{text:string}[]
+        subLink:{
+            text:string,
+            click:Function
+        }[][]
     }[],
-    subPod:{
-        style:{}
-    }
 }
 
 
@@ -48,7 +61,7 @@ export class MobileNavComponent implements OnInit {
     //
 
     // dev additions
-    @Input() links:MobileNavLinks | any;
+    @Input() links:MobileNavLinks ;
     //
 
     constructor(
