@@ -49,8 +49,6 @@ jobs:
           paths:
             - /root/project/AngularApp/backend/python/site-packages       
       - run:
-        # test step  
-      - run:
           . /etc/profile.d/01-custom-docker-setup.sh;   
           cd ~/project/AngularApp;
           npx ng run AngularApp:judima:firebaseprod;
