@@ -91,14 +91,21 @@ export class RyberService {
             .map((x:any,i)=>{
                 return {
                     link:{
-                        text:["HOME","ABOUT","MODLUES","VIDEOS",
+                        text:["HOME","ABOUT","MODULES","VIDEOS",
                         "PUBLICATIONS","INTERNSHIPS","BLOG","CONTACT US"][i],
                         click:(evt)=>{
                             let {router} =this
-                            this.nav.mobileLinks.subPod.style.display = this.nav.mobileLinks.subPod.style.display === "block" ? "none" :"block"
+                            this.nav.mobileLinks.subPod.style.display =
+                            this.nav.mobileLinks.subPod.style.display === "block"
+                            ? "none" :"block"
+                            
+                            if(this.nav.mobileLinks.subPod.translateIndex !== i){
+                                this.nav.mobileLinks.subPod.style.display = "block"
+                            }
                             if(
                                 this.nav.mobileLinks.items[i].subLink?.length === 0 ||
                                 !this.nav.mobileLinks.items[i].subLink
+
                             ){
                                 // hide the navigation
                                 this.nav.mobileLinks.view.style.display = "none"

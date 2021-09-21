@@ -18,11 +18,11 @@
         >
             <div
             [class]="prefix.pods[0]({val:'Item0'})"
-            (click)="links.items[0].click($event)"
+            (click)="x.click($event)"
             *ngFor="let x of links.subPod.items;let i = index"
             >
                 <a
-                [routerLink]='"/"+ links.items[0].link?.text | lowercase'
+                [routerLink]='"/"+ x?.text | lowercase'
                 [class]=""
                 >{{ 'mobileNav.items.subLink.'+links.subPod.translateIndex + '.' + i| translate  }}</a>
             </div>

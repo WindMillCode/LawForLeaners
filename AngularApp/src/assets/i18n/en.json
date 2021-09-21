@@ -2,7 +2,7 @@
     "mobileNav":{
         "title":"Navigation",
         "items":{
-            "link":["HOME","ABOUT","MODLUES","VIDEOS",
+            "link":["HOME","ABOUT","MODULES","VIDEOS",
                 "PUBLICATIONS","INTERNSHIPS","BLOG","CONTACT US"],
             "subLink":[
                 [],
