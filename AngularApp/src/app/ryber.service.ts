@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Injectable({
@@ -11,8 +12,11 @@ export class RyberService {
 
     constructor(
         public router: Router,
-        public http: HttpClient
-    ) { }
+        public http: HttpClient,
+        public translate:TranslateService
+    ) {
+        translate.setDefaultLang("en")
+    }
 
     cmsInit:Subject<any> = new Subject<any>();
 
@@ -54,6 +58,88 @@ export class RyberService {
                             .map((z:any,k)=>{
                                 z ={text:z}
                                 return z
+                            })
+                        ][j]
+                    })[i]
+                }
+            }),
+        },
+        mobileLinks:{
+            icon:{
+                click:(evt:Event)=>{
+                    if(this.nav.mobileLinks.view.style.display === "flex"){
+                        this.nav.mobileLinks.subPod.style.display = "none"
+                        this.nav.mobileLinks.view.style.display = "none"
+
+                    }
+                    else{
+                        this.nav.mobileLinks.subPod.style.display = "none"
+                        this.nav.mobileLinks.view.style.display = "flex"
+
+                    }
+                }
+            },
+            view:{
+                style:{}
+            },
+            subPod:{
+                style:{},
+                items:[],
+                translateIndex:0
+            },
+            items:Array(8).fill(null)
+            .map((x:any,i)=>{
+                return {
+                    link:{
+                        text:["HOME","ABOUT","MODLUES","VIDEOS",
+                        "PUBLICATIONS","INTERNSHIPS","BLOG","CONTACT US"][i],
+                        click:(evt)=>{
+                            let {router} =this
+                            this.nav.mobileLinks.subPod.style.display = this.nav.mobileLinks.subPod.style.display === "block" ? "none" :"block"
+                            if(
+                                this.nav.mobileLinks.items[i].subLink?.length === 0 ||
+                                !this.nav.mobileLinks.items[i].subLink
+                            ){
+                                // hide the navigation
+                                this.nav.mobileLinks.view.style.display = "none"
+                                //
+                                router.navigateByUrl("/"+this.nav.mobileLinks.items[i].link.text.toLowerCase())
+                            }
+                            else{
+                                this.nav.mobileLinks.subPod.items = this.nav.mobileLinks.items[i].subLink
+                                this.nav.mobileLinks.subPod.translateIndex = i
+                            }
+
+                        },
+
+                    },
+                    subLink:Array(8).fill(null)
+                    .map((y:any,j)=>{
+
+                        let click = (devObj)=>{
+                            let {z} = devObj
+                            return (evt)=>{
+                                let {router} =this
+                                this.nav.mobileLinks.subPod.style.display = "none"
+                                router.navigateByUrl("/"+z.split(" ").join("_").toLowerCase())
+                            }
+                        }
+                        return [
+                            [],
+                            ["APPRECIATION","OUR TEAM"].map((z:any,k)=>{
+                                let newZ ={
+                                    text:z,
+                                    click:click({z})
+                                }
+                                return newZ
+                            }),
+                            ["GUIDELINES","BASIC COURSES","ADVANCED COURSES"]
+                            .map((z:any,k)=>{
+                                let newZ ={
+                                    text:z,
+                                    click:click({z})
+                                }
+                                return newZ
                             })
                         ][j]
                     })[i]

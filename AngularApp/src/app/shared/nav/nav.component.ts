@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy ,HostBinding, ChangeDetectorRef} from '@angular/core';
 import { RyberService } from 'src/app/ryber.service';
 import {Subscription}from 'rxjs';
+import { classPrefix } from 'src/app/customExports';
 
 @Component({
     selector: 'app-nav',
@@ -13,10 +14,16 @@ export class NavComponent implements OnInit {
     @HostBinding('class') class = "a_p_p_NavView"
     subscriptions:[] = []
     nav = this.ryber.nav
+    prefix ={
+        main:classPrefix({view:"NavMainPod"}),
+        view: classPrefix({view:"Nav"}),
+        header:classPrefix({view:"NavHeader"}),
+    }
+    subs: Subscription[] = [];
     //
 
     constructor(
-        private ryber:RyberService,
+        public ryber:RyberService,
         private ref:ChangeDetectorRef
     ) { }
 

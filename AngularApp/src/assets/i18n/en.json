@@ -1,0 +1,14 @@
+{
+    "mobileNav":{
+        "title":"Navigation",
+        "items":{
+            "link":["HOME","ABOUT","MODLUES","VIDEOS",
+                "PUBLICATIONS","INTERNSHIPS","BLOG","CONTACT US"],
+            "subLink":[
+                [],
+                ["APPRECIATION","OUR TEAM"],
+                ["GUIDELINES","BASIC COURSES","ADVANCED COURSES"]
+            ]
+        }
+    }
+}

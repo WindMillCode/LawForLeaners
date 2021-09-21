@@ -1,0 +1,44 @@
+
+<div
+[class]="prefix.main({val:'Pod'})"
+>
+    <h1>{{ "mobileNav.title" | translate }}</h1>
+
+
+    <div
+    [class]="prefix.main({val:'Item1'})"
+    >
+        <a
+        [routerLink]='"/"+ links.items[0].link?.text | lowercase'
+        [class]="prefix.main({val:'Link0'})"
+        >{{'mobileNav.items.link.0' | translate}}</a>
+        <div
+        [ngStyle]="links.subPod.style"
+        [class]="prefix.pods[0]({val:''})"
+        >
+            <div
+            [class]="prefix.pods[0]({val:'Item0'})"
+            (click)="links.items[0].click($event)"
+            *ngFor="let x of links.subPod.items;let i = index"
+            >
+                <a
+                [routerLink]='"/"+ links.items[0].link?.text | lowercase'
+                [class]=""
+                >{{ 'mobileNav.items.subLink.'+links.subPod.translateIndex + '.' + i| translate  }}</a>
+            </div>
+        </div>
+    </div>
+
+    <div
+    *ngFor="let x of links.items.slice(1);let i = index"
+    (click)="x.link.click($event)"
+    [class]="prefix.main({val:'Item0'})"
+    >
+        <a
+        [routerLink]='"/"+ x.link?.text | lowercase'
+
+        >{{'mobileNav.items.link.'+(i+1) | translate}}</a>
+
+    </div>
+</div>
+

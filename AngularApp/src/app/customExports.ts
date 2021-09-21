@@ -18,3 +18,13 @@ export function eventDispatcher(   devObj:{event:string,element:HTMLElement | Wi
         devObj.element.dispatchEvent(eventLegacy)
     }
 }
+
+
+export function classPrefix(devObj:{view:string}){
+    let {view} = devObj
+    let prefix = "a_p_p_"+view
+    return (devObj:{val:string})=>{
+        let {val} = devObj
+        return prefix+val
+    }
+}

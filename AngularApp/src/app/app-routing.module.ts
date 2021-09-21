@@ -16,7 +16,7 @@ const routes: Routes = [
     },
     {
         path: '',
-        redirectTo: '',
+        redirectTo: 'home',
         pathMatch: 'full'
       }
 ]; // sets up routes constant where you define your routes

@@ -14,7 +14,7 @@ export class AppComponent {
     title = 'AngularApp';
 
     constructor(
-        private ryber:RyberService,
+        public ryber:RyberService,
         private ref:ChangeDetectorRef
     ){}
 
@@ -22,6 +22,8 @@ export class AppComponent {
     ngOnInit(){
         let {ryber,ref} =this
         let {router,http} = ryber
+
+
 
 
         router.navigateByUrl(env.startURL)
@@ -152,5 +154,17 @@ export class AppComponent {
             })
         }
         //
+    }
+
+    ngAfterViewInit(){
+        fromEvent(window,"resize")
+        .pipe(
+            tap(
+                ()=>{
+                    console.log(window.innerWidth)
+                }
+            )
+        )
+        .subscribe()
     }
 }

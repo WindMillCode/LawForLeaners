@@ -84,6 +84,7 @@ Only members of the project can read the README.md from the ignore folder
 
 ### Issues
 * say we have issues and we are looking for support with a library language or other 3rd party found here __AngularApp/misc/issues__
+
 ### Future Plans
 refer to README.md in ignore
 
@@ -111,6 +112,7 @@ refer to README.md in ignore
 
 
 # Issues 
+* for some reason the mobile subpanel does not disappear when I toggle click the menu icon 
 * video autoplay inconsistent behaviour get help to solve the problem, 
 * some odd reason CircleCI cant cache the ruby deps
 ```yml

@@ -4,7 +4,7 @@
 
 export const environment = {
     production: false,
-    startURL:'/videos',
+    startURL:'/home',
     cosmic:{
         baseUrl: "https://api.cosmicjs.com",
         bucketSlug:"lawforlearners-prod",

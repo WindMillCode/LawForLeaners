@@ -1,0 +1,96 @@
+@import "src/assets/styles/util";
+@import "src/assets/styles/fonts";
+
+
+
+:host{
+    --width0:250px;
+    &.a_p_p_MobileNav,.a_p_p_MobileNav{
+        &View{
+            position:absolute;
+            top:0;
+            left:0;
+            z-index:6;
+            font-size:16px;
+
+            display: none;
+
+            & *{
+                color:white;
+                box-sizing: border-box;
+            }
+
+            @media (max-width: 586px){
+                .a_p_p_MobileNavPod0,
+                .a_p_p_MobileNavMainPod{
+                    width:50vw;
+                    flex:1 1 50vw;
+                }
+                & *{
+                    font-size:5vw;
+                }
+            }
+        }
+        &Main{
+            &Pod{
+                background-color: var(--color1);
+                @include flex-column-center;
+                padding:20px 0 0 0;
+                width:var(--width0);
+
+            }
+
+            &Item{
+                &0{
+                    padding:20px ;
+                    width:100%;
+                    background: var(--radial-bg-darkblue);
+                    display: flex;
+                    &:first-of-type{
+                        margin:20px 0 0 0;
+                    }
+                }
+
+                &1{
+                    width:100%;
+                    display:flex;
+                }
+            }
+
+            &Link{
+                &0{
+                    padding:20px ;
+                    flex:1 0 100%;
+                    background: var(--radial-bg-darkblue);
+                    display: flex;
+                    max-height: 58.4px;
+                    &:first-of-type{
+                        margin:20px 0 0 0;
+                    }
+                }
+            }
+
+
+        }
+        &Pod{
+            &0{
+                width:var(--width0);
+                display:none;
+                margin:20px 0 0 0;
+                max-height: 58.4px;
+
+
+                &Item{
+                    &0{
+                        padding:20px ;
+                        width:100%;
+                        background: var(--radial-bg-darkblue);
+                        display: flex;
+
+                    }
+                }
+            }
+        }
+    }
+
+}

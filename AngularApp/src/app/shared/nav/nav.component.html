@@ -2,21 +2,35 @@
 class="a_p_p_NavHeaderPod"
 >
     <!-- row 1 -->
-    <img
-    class="a_p_p_NavHeaderImg a_p_p_SpecificPodMargin"
-    routerLink="/home"
-    src="assets/media/logo_1.PNG" alt="">
+    <div
+    [class]="prefix.header({val:'Item0'})"
+    >
+        <img
+        class="a_p_p_NavHeaderImg0 a_p_p_SpecificPodMargin"
+        routerLink="/home"
+        src="assets/media/nav_0.png" alt="">
+        <img
+        class="a_p_p_NavHeaderImg1 a_p_p_SpecificPodMargin"
+        routerLink="/home"
+        (click)="ryber.nav.mobileLinks.icon.click($event)"
+        src="assets/media/nav_1.png" alt="">
+    </div>
+
     <h1
-    class= "a_p_p_SpecificWhite  a_p_p_NavHeaderTitle a_p_p_SpecificASFS"
+    class= "a_p_p_SpecificWhite  a_p_p_NavHeaderTitle"
     >{{nav.title?.text}}</h1>
     <button
-    class="a_p_p_NavHeaderGetInTouch a_p_p_SpecificASFS "
+    class="a_p_p_NavHeaderGetInTouch"
     >
         Get In Touch
     </button>
-    <h2
-    class ="a_p_p_NavHeaderSubTitle"
-    >{{nav.subtitle?.text}}</h2>
+    <div
+    [class]="prefix.header({val:'SubTitlePod'})"
+    >
+        <h2
+        [class]="prefix.header({val:'SubTitleText'})"
+        >{{nav.subtitle?.text}}</h2>
+    </div>
     <div
     class="a_p_p_NavMainPod"
     appSubNav
